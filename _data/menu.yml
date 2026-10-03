@@ -1,6 +1,4 @@
 entries:
-  - title: about
-    url: /about.html
   - title: posts
     post_list: true
   - title: series
