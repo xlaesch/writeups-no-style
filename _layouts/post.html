@@ -6,10 +6,30 @@ layout: default
 
 <article>
   <p class="post-meta">
-    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.theme_config.date_format }}</time>
   </p>
   
   <h1>{{ page.title }}</h1>
 
+  {% if page.series %}
+  <p class="series-meta"><a href="{{ page.series_url | relative_url }}">{{ page.series }}</a> · Part {{ page.series_part }}</p>
+  {% endif %}
+
   {{ content }}
+
+  {% if page.series %}
+  <nav aria-label="Series navigation">
+    <hr>
+    <p><a href="{{ page.series_url | relative_url }}">All posts in {{ page.series }}</a></p>
+    {% assign series_posts = site.categories[page.categories.first] | sort: 'series_part' %}
+    {% for post in series_posts %}
+      {% if post.series_part < page.series_part %}{% assign previous_post = post %}{% endif %}
+      {% if post.series_part > page.series_part %}
+        <p>Next: <a href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if previous_post %}<p>Previous: <a href="{{ previous_post.url | relative_url }}">{{ previous_post.title }}</a></p>{% endif %}
+  </nav>
+  {% endif %}
 </article>
