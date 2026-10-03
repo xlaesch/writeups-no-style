@@ -22,7 +22,7 @@ series_part: 2
 series_url: /road-to-nationals.html
 ```
 
-The series index and navigation update automatically. The first draft's missing rack photo and CCRA URL were omitted; they can be added when available.
+The series index and navigation update automatically. The first post retains a placeholder for the Radio Club rack photo. Proxmox and scoring screenshots are in `assets/images/road-to-nationals/`.
 
 ## Hosting
 
