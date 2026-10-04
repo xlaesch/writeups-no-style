@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Road to Nationals, Part 2: A Paradigm Shift in Cyber Competitions"
+title: "A Paradigm Shift in Cyber Competitions"
 date: 2026-10-04 00:00:00 -0400
 author: Alex Schneider
 categories: [road-to-nationals]

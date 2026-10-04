@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Road to Nationals, Part 1: Building Our Practice Lab"
-date: 2026-10-03 00:00:00 -0400
+title: "Building Our Practice Lab"
+date: 2026-09-29 00:00:00 -0400
 author: Alex Schneider
 categories: [road-to-nationals]
 tags: [ccdc, blue-team, windows, proxmox, homelab]
