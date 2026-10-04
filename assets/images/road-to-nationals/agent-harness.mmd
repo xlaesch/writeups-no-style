@@ -1,0 +1,9 @@
+flowchart TB
+    accTitle: Proposed CCDC agent harness
+    accDescr: An OpenCode orchestrator reads the competition dashboards and coordinates OpenCode workers in competitor VMs. Workers use service skills, share findings, manage credentials, and harden assigned services. Students review and submit inject drafts.
+    dashboards["Scoreboard, dashboards<br/>and inject portal"] --> orchestrator["OpenCode<br/>orchestrator"]
+    orchestrator <-->|"assign / report"| workers["OpenCode workers<br/>in competitor VMs<br/>Service skills<br/>and opening playbooks"]
+    orchestrator --> drafts["Inject drafts<br/>Team template<br/>Student review<br/>and submission"]
+    workers <-->|"coordinate"| board["Shared board<br/>Findings and<br/>dependencies"]
+    workers <-->|"use / update"| vault["Credential<br/>manager"]
+    workers <-->|"harden / verify"| services["Assigned services<br/>Windows / AD<br/>Linux / routers"]

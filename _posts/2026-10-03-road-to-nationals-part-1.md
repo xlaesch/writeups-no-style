@@ -32,13 +32,13 @@ Last year, I barely had any experience hardening Windows, especially in the rhyt
 
 With that in mind, this year I want to know what each change does before we deploy it. We'll run the scripts against a domain and check the services afterward. We also need to be able to undo whatever breaks.
 
-I decided on [GOAD-Light](https://github.com/Orange-Cyberdefense/GOAD), an insanely vulnerable Active Directory lab with three Windows machines. It's kind of similar to what we see in a real CCDC environment, except without the command-and-control implants (C2s) and registry madness. It's small enough for our hardware and gives us a domain with misconfigurations to fix. It also supports Proxmox, which our server was already running.
+I decided on [GOAD-Light](https://github.com/Orange-Cyberdefense/GOAD), a vulnerable Active Directory lab with three Windows machines. It's kind of similar to what we see in a real CCDC environment, except without the command-and-control implants (C2s) and registry madness. It's small enough for our hardware and gives us a domain with misconfigurations to fix. It also supports Proxmox, which our server was already running.
 
 ## Running It
 
 Remote access was limited at first, so I used the Proxmox API to stage the installer ISOs directly on the host, then added an SSH forward for shell access.
 
-Packer installed Windows Server 2019 into a template. Terraform then created linked clones, and Ansible configured the domains and services. To be honest, I was expecting an incredibly painful process of fixing every Ansible step. A previous attempt to run GOAD on my own machine had been incredibly frustrating.
+Packer installed Windows Server 2019 into a template. Terraform then created linked clones, and Ansible configured the domains and services. To be honest, I was expecting a pretty painful process of fixing every Ansible step. A previous attempt to run GOAD on my own machine had been very frustrating.
 
 The template took about 72 minutes to build on our 1.6 GHz Xeons. Once it was ready, Terraform gave me this plan:
 
@@ -70,7 +70,7 @@ I also wanted to follow proper homelabbing practices, so I put the VMs on `vmbr1
 
 [![Proxmox dashboard listing the GOAD Windows VMs, scoring container, and Windows Server template.]({{ '/assets/images/road-to-nationals/proxmox-dashboard.png' | relative_url }})]({{ '/assets/images/road-to-nationals/proxmox-dashboard.png' | relative_url }})
 
-*The lab VMs and scoring container in Proxmox. Click the screenshot to view it at full size.*
+*The lab VMs and scoring container in Proxmox.*
 
 ## Checking the Services
 
@@ -82,7 +82,9 @@ Reading the individual check output helped separate scoring configuration errors
 
 [![CCDC ScoringEngine overview showing the GOAD Lab with ten services up, zero down, and a green check for every service.]({{ '/assets/images/road-to-nationals/scoring-overview.png' | relative_url }})]({{ '/assets/images/road-to-nationals/scoring-overview.png' | relative_url }})
 
-*All ten checks passing in the scoring dashboard. Click the screenshot to view it at full size.*
+*All ten checks passing in the scoring dashboard.*
+
+
 
 I saved the working VMs with a snapshot named `working-state`. To reset a VM between sessions:
 
