@@ -2,3 +2,32 @@
 ---
 
 @import "no-style-please";
+
+// Side-by-side HTTP request/response pairs in writeups.
+.reqres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.reqres > div {
+  flex: 1 1 320px;
+  min-width: 0; // let the pre scroll instead of blowing out the row
+}
+
+.reqres .reqres-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.reqres pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+// Stack on narrow screens.
+@media (max-width: 640px) {
+  .reqres { flex-direction: column; }
+}

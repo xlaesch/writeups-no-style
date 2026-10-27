@@ -1,6 +1,8 @@
 entries:
   - title: posts
     post_list: true
+  - title: writeups
+    url: /writeups.html
   - title: series
     entries:
       - title: Road to Nationals
