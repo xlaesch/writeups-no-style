@@ -1,15 +1,16 @@
 ---
 layout: post
 title: "DutyBound"
+seo_title: "HackTheBox DutyBound Writeup: SQL Injection & Enumeration | Alex Schneider"
 date: 2026-10-26 00:00:00 -0400
 author: Alex Schneider
 categories: [writeups]
 tags: [hackthebox, linux, web, sql-injection, postgresql, x11, privesc]
 permalink: /dutybound.html
-description: "A HackTheBox writeup for DutyBound: a fake boarding-pass scanner, Postgres RCE, an unlocked kiosk X session, and a root eval in a duty-rate script."
+description: "A Hack The Box DutyBound writeup covering Linux enumeration, boarding-pass parsing, PostgreSQL SQL injection, and privilege escalation."
 ---
 
-DutyBound is a Linux box built around a duty-free self-checkout kiosk. This one wasn't my favorite. The foothold hinged on finding a SQL injection, and working out the barcode format well enough to test for it was pretty painful.
+DutyBound is a Hack The Box Linux machine built around a duty-free self-checkout kiosk. This one wasn't my favorite. The foothold hinged on finding a SQL injection, and working out the barcode format well enough to test for it was pretty painful.
 
 ## Enumeration
 
