@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Evaluating QLCoder Queries for Overfitting"
+title: "Evaluating AI-Generated CodeQL Queries for Overfitting"
 date: 2026-11-02 00:00:00 -0500
 author: Alex Schneider
 categories: [research]
